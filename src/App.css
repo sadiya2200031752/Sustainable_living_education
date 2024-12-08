@@ -1,38 +1,276 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: aquamarine; /* Replace with your background image URL */
+  background-size: cover;
+  background-position: center;
+  color: #333333e2;
+  background: url('C:\Users\DELL\Desktop\sustainable-education-frontend\src\components\images\image5.webp');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  
+}
+
+
+.box {
+  background-color: white; /* Change background color as needed */
+  padding: 40px;          /* Increase padding for aesthetics */
+  border-radius: 10px;    /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add some shadow */
+  width: 400px;           /* Adjusted width */
+  text-align: center; 
+  justify-content: center;
+ }
+
+h1 {
+  text-align: center;
+  color: #fff; /* Change to a color that contrasts with your background */
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #007bff; /* Change this color to your preference */
+}
+
+/* General Styling for Form Container */
+.form-container {
+  max-width: 400px;
+  width: 100%; /* Ensures it fits within available space */
+  margin: 40px auto 20px auto; /* Adds space from the top and bottom */
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+  background: url('C:\Users\DELL\Desktop\sustainable-education-frontend\src\components\images\image1.png');
+}
+
+/* Styling for Form Header */
+.form-container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+}
+
+/* Styling for Input Fields */
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"] {
+  width: 100%;
+  padding: 0px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Prevents padding from increasing width */
+}
+
+/* Styling for Submit Button */
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
   color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.form-container button:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive Design for Smaller Screens */
+@media (max-width: 480px) {
+  .form-container {
+    max-width: 100%; /* Ensures full width on small screens */
+    margin: 20px;
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .form-container h2 {
+    font-size: 20px; /* Adjusts font size for smaller screens */
   }
+}
+
+/* Prevent Horizontal Scroll */
+body {
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+
+.form-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group input:focus {
+  border-color: #007bff; /* Focus color */
+  outline: none;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Button color */
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3; /* Button hover color */
+}
+
+.your-component-container {
+ background-color: antiquewhite; /* Adjust path accordingly */
+  background-size: cover; /* Adjusts the size of the background image */
+  background-position: center; /* Centers the image */
+  height: 100vh; /* Sets the height to full viewport height */
+  color: white; /* Change text color for better visibility */
+}
+
+.homepage {
+  height: 150vh;  /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('C:\Users\DELL\Desktop\sustainable-education-frontend\src\components\images\image4.jpg') no-repeat center center/cover;  /* Add background image */
+  background-size: cover;
+}
+
+.homepage-image {
+  margin-top: 50px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('C:\Users\DELL\Desktop\sustainable-education-frontend\src\components\images\image4.jpg') no-repeat center center/cover;
+  background-size: cover;
+}
+.home-page-container {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('C:\Users\DELL\Desktop\sustainable-education-frontend\src\components\images\image4.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.home-page-text {
+  color: white;
+  font-size: 2rem;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  transform: perspective(1000px) rotateX(1deg) rotateY(1deg);
+}
+.dashboard {
+  max-width: 2000px;
+  width: 100%; /* Ensures it fits within available space */
+  margin: 40px auto 20px auto; /* Adds space from the top and bottom */
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+  background: url('C:\Users\DELL\Desktop\sustainable-education-frontend\src\components\images\image1.png');
+}
+.lesson {
+  max-width: 1500px;
+  width: 100%; /* Ensures it fits within available space */
+  margin: 40px auto 20px auto; /* Adds space from the top and bottom */
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+  background: url('C:\Users\DELL\Desktop\sustainable-education-frontend\src\components\images\image1.png');
+}
+.component {
+  max-width: 700px;
+  width: 500%; /* Ensures it fits within available space */
+  margin: 40px auto 20px auto; /* Adds space from the top and bottom */
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+  background: url('C:\Users\DELL\Desktop\sustainable-education-frontend\src\components\images\image2.png');
+}
+/* Styles for the Handbook Component */
+.handbook-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Light gray background */
+}
+
+.handbook-box {
+  padding: 20px;
+  background-color: white; /* White box */
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center text */
+}
+
+.handbook-link {
+  text-decoration: none; /* Remove underline */
+  color: #007BFF; /* Blue link color */
+  font-weight: bold; /* Bold text */
+}
+
+.handbook-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+  color: #0056b3; /* Darker blue on hover */
 }

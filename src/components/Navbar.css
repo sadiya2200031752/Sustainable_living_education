@@ -1,0 +1,83 @@
+/* Reset margin and padding globally to prevent any unexpected layout issues */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border don't affect width/height */
+}
+
+/* Set body and html to take full width without margins */
+body, html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styles */
+.navbar {
+    background: rgba(0, 10, 10, 0.9); /* Transparent dark background */
+    position: fixed; /* Fixed at the top */
+    top: 0;
+    width: 100vw;
+    left: 0; /* Ensure it starts from the left edge */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1050; /* Keep it on top of other content */
+    height: 60px; /* Navbar height */
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Vertically center content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    padding: 0 30px; /* Add horizontal padding inside navbar */
+}
+
+/* Navbar list styles */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-grow: 1; /* Allow navbar items to take up space */
+    justify-content: flex-start; /* Left-align the menu items */
+}
+
+/* Navbar list item styles */
+.navbar li {
+    margin: 0 15px; /* Spacing between items */
+}
+
+/* Auth links container */
+.navbar .auth-links {
+    display: flex;
+    gap: 15px;
+}
+
+/* Navbar links styling */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Navbar link hover effect */
+.navbar a:hover {
+    text-decoration: underline;
+    color: #00bcd4;
+}
+
+.navbar-wrapper {
+    border: 2px solid black; /* Black box border */
+    margin: 0 auto; /* Center the black box */
+    max-width: 90%; /* Adjust the width of the bordered box */
+    background: rgb(0, 10, 10); /* Background inside the border */
+}
+.navbar-inner {
+    max-width: 90%; /* Restrict inner content width */
+    margin: 0 auto; /* Center the inner box */
+    border: 2px solid black; /* Black border around the inner box */
+    padding: 10px; /* Padding inside the inner box */
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Vertically center items */
+}
