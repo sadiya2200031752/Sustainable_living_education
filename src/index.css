@@ -1,13 +1,905 @@
+/* General */
 body {
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Navbar */
+.navbar {
+  background: #004d40;
+  color: white;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li button,
+.nav-links li a {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+}
+/* Hamburger icon */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+/* Hamburger icon */
+
+
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden by default */
+  width: 250px;
+  height: 100%;
+  background-color: #004d40; /* Dark green background */
+  color: white;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  left: 0; /* Slide in */
+}
+
+.sidebar .close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  align-self: flex-end;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.sidebar ul a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: url('assets/backhome.jpg') no-repeat center center/cover;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* ensure overlay fits */
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 50% black overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* make sure text is above overlay */
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+}
+
+
+/* Features */
+.features {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #ffffff; /* solid white background */
+  position: relative;
+  z-index: 3; /* make sure it sits above any background overlays */
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #004d40;
+  font-weight: bold;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.feature {
+  background: oklch(98.212% 0.00011 271.152 / 0.949);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  position: relative;
+}
+
+.modal-content input {
+  width: 90%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  background-color: #00b894;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+/* EcoStudy page styles */
+/* .eco-banner {
+  position: relative;
+  background: url('assets/eco-banner.jpg') no-repeat center/cover;
+  height: 38vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.eco-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.eco-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.eco-banner-content h1 { font-size: 2.2rem; margin: 0 0 6px; }
+.eco-banner-content p { margin: 0; font-size: 1rem; opacity: 0.95; }
+
+.eco-container { padding: 30px 20px 80px; max-width: 1100px; margin: 0 auto; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.eco-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.eco-card h3 { color: #004d40; margin: 0 0 8px; }
+.eco-card p { color: #444; margin: 0 0 12px; }
+.card-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #004d40;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.section { margin-top: 28px; background: none; padding: 12px 6px; border-radius: 6px; }
+
+.tips-list li { margin: 8px 0; color: #333; }
+.resource-list li { margin: 8px 0; }
+
+.challenge-list { padding: 0; list-style: none; }
+.challenge-item { margin: 10px 0; }
+.challenge-item.done .challenge-text { text-decoration: line-through; opacity: 0.6; }
+
+.quiz-section { margin-top: 30px; text-align: center; }
+.quiz-card { max-width: 700px; margin: 0 auto; background: #fff; padding: 18px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+.quiz-q { font-weight: 600; font-size: 1.05rem; }
+.quiz-options { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+.quiz-opt { padding: 10px 12px; border-radius: 6px; border: 1px solid #ddd; background: #fff; cursor: pointer; text-align: left; }
+.quiz-opt:hover { background: #f1f1f1; }
+.quiz-result p { font-size: 1.1rem; font-weight: 600; } */
+/* ===== General Layout ===== */
+.eco-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.section {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+/* ===== Banner ===== */
+/* ===== Banner with background image ===== */
+.eco-banner {
+  position: relative;
+  background: url('./assets/eco-banner.jpg') no-repeat center center/cover;
+  padding: 40px;
+  text-align: center;
+  border-radius: 0 0 15px 15px;
+  color: white;
+  overflow: hidden;
+}
+
+.eco-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* dark overlay for text contrast */
+  z-index: 0;
+}
+
+.eco-banner h1,
+.eco-banner p {
+  position: relative;
+  z-index: 1; /* keeps text above overlay */
+}
+
+.eco-banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.eco-banner p {
+  font-size: 1.2rem;
+}
+
+
+/* ===== Card Grid ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.eco-card {
+  background: #fff8f0;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+.eco-card h3 {
+  margin-bottom: 10px;
+}
+
+.card-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: hsl(0, 100%, 86%);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.card-btn:hover {
+  background: hsla(356, 100%, 77%, 0.914);
+}
+
+/* ===== Section Colors ===== */
+.practical-tips {
+  background-color: #e0f7fa; /* light teal */
+}
+
+.diy-projects {
+  background-color: #fff3e0; /* light orange */
+}
+
+.weekly-challenges {
+  background-color: #e8f5e9; /* light green */
+}
+
+.other-resources {
+  background-color: #f3e5f5; /* light purple */
+}
+
+.quiz-area {
+  background-color: #fce4ec; /* light pink */
+}
+
+/* ===== Tips List ===== */
+.tips-list li {
+  margin-bottom: 8px;
+}
+
+/* ===== Challenges ===== */
+.challenge-list {
+  list-style: none;
+  padding: 0;
+}
+
+.challenge-item {
+  margin-bottom: 8px;
+}
+
+.challenge-item.done .challenge-text {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* ===== Quiz ===== */
+.quiz-section {
+  text-align: center;
+}
+
+.quiz-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-width: 500px;
+  margin: auto;
+}
+
+.start-card {
+  background: #f0fdf4;
+}
+
+.quiz-q {
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quiz-opt {
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #81c784; /* green */
+  color: white;
+  cursor: pointer;
+}
+
+.quiz-opt:hover {
+  background: #66bb6a;
+}
+
+.quiz-progress {
+  margin-top: 10px;
+}
+
+.quiz-result p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+/* ---------------- DIGITAL STUDY PAGE STYLES ---------------- */
+
+/* -------- DIGITAL STUDY PAGE (Eco Study style) -------- */
+
+/* =========================
+   DIGITAL STUDY PAGE STYLES
+   ========================= */
+.digital-study-page {
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+
+  /* Offset for sidebar */
+  margin-left: 240px; /* adjust to your sidebar width */
+}
+
+@media (max-width: 768px) {
+  .digital-study-page {
+    margin-left: 0; /* no offset for mobile view */
+  }
+}
+
+
+.digital-study-page .ds-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.digital-study-page .ds-intro {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.digital-study-page .topic-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.digital-study-page .topic-card {
+  background-color: #e3f2fd;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.digital-study-page .topic-card.completed {
+  background-color: #c8e6c9; /* light green when completed */
+}
+
+.digital-study-page .topic-card h3 {
+  margin-bottom: 8px;
+}
+
+.digital-study-page .topic-card button {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.digital-study-page .topic-card button:hover {
+  background-color: #388e3c;
+}
+
+.digital-study-page .progress-section {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.digital-study-page .quiz-teaser {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff3cd;
+  border-left: 5px solid #ffc107;
+  border-radius: 8px;
+}
+
+.digital-study-page .quiz-teaser button {
+  margin-top: 10px;
+  background-color: #ff9800;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.digital-study-page .quiz-teaser button:hover {
+  background-color: #e68900;
+}
+/* ===========================
+   MORAL STORIES PAGE STYLES
+   =========================== */
+
+.moral-stories-page {
+  /* Offset so it doesn't slide under your sidebar; adjust if needed */
+  margin-left: 240px;
+  padding: 24px;
+  background: #f7faf7;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .moral-stories-page {
+    margin-left: 0;
+  }
+}
+
+.moral-header h1 {
+  font-size: 2rem;
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: #0d473f; /* deep green to match your palette */
+}
+
+.moral-header p {
+  margin: 0 0 18px;
+  color: #365a57;
+  opacity: 0.95;
+}
+
+/* Two-column layout: story | animation */
+.moral-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .moral-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Story card */
+.moral-story-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 18px 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.moral-title {
+  color: #0c6a5b;
+  margin: 0 0 10px;
+}
+
+.story-text p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.moral-actions {
+  margin-top: 10px;
+}
+
+.reveal-moral-btn {
+  /* "card-btn" already exists in your CSS; this just refines spacing here */
+  margin-top: 6px;
+}
+
+.moral-reveal {
+  margin-top: 10px;
+  font-weight: 700;
+  color: #0b6b3a;
+  background: #e8f5e9;
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  animation: moralGlow 1.4s ease-in-out both;
+}
+
+@keyframes moralGlow {
+  0%   { box-shadow: 0 0 0 rgba(16,185,129,0); transform: scale(0.98); }
+  60%  { box-shadow: 0 0 18px rgba(16,185,129,0.35); transform: scale(1.01); }
+  100% { box-shadow: 0 0 0 rgba(16,185,129,0); transform: scale(1); }
+}
+
+/* Animation card */
+.moral-anim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.anim-hint {
+  font-size: 0.9rem;
+  color: #446;
+  opacity: 0.85;
+}
+
+/* The animation scene */
+.story-anim {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: linear-gradient(180deg, #e6f7f3 0%, #ffffff 70%);
+  isolation: isolate;
+}
+
+/* Sky and clouds */
+.story-anim .sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #d8fff2 0%, #ffffff 70%);
+  z-index: 1;
+}
+
+.cloud {
+  position: absolute;
+  top: 30px;
+  width: 140px;
+  height: 40px;
+  background: #fff;
+  border-radius: 40px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+  z-index: 2;
+  opacity: 0.9;
+}
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+.cloud::before { width: 60px; height: 60px; left: 14px; top: -20px; }
+.cloud::after  { width: 80px; height: 80px; left: 64px; top: -30px; }
+
+.cloud-1 { left: -160px; animation: drift 26s linear infinite; }
+.cloud-2 { top: 70px; left: -220px; transform: scale(0.8); animation: drift 34s linear infinite; }
+
+@keyframes drift {
+  0%   { transform: translateX(0) scale(var(--s, 1)); }
+  100% { transform: translateX(140%) scale(var(--s, 1)); }
+}
+
+/* Pot */
+.pot {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 84px;
+  background: #8d6e63;         /* clay */
+  border-radius: 0 0 14px 14px;
+  z-index: 5;
+  box-shadow: inset 0 -8px 0 rgba(0,0,0,0.08);
+}
+.pot-lip {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 24px;
+  background: #a98274;
+  border-radius: 12px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+}
+
+/* Stem + leaves (paused by default; run when .animate on parent) */
+.stem,
+.leaf {
+  animation-play-state: paused;
+}
+
+.story-anim.animate .stem,
+.story-anim.animate .leaf {
+  animation-play-state: running;
+}
+
+/* Stem grows up out of the pot */
+.stem {
+  position: absolute;
+  bottom: 84px;   /* on top of pot body */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 0;      /* grows to ~160px */
+  background: #2e7d32;
+  border-radius: 6px;
+  z-index: 4;
+  animation: growStem 2.2s ease-out forwards 0.2s;
+}
+@keyframes growStem {
+  to { height: 160px; }
+}
+
+/* Leaves pop out and rotate slightly */
+.leaf {
+  position: absolute;
+  width: 56px;
+  height: 28px;
+  background: #43a047;
+  border-radius: 28px 28px 28px 28px / 18px 18px 18px 18px;
+  opacity: 0;
+  z-index: 4;
+  transform-origin: center left;
+  transform: scale(0) rotate(0deg);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.08);
+  animation: popLeaf 0.9s ease-out forwards;
+}
+.leaf-left {
+  bottom: 140px;
+  left: calc(50% - 18px);
+  transform-origin: right center;
+  animation-delay: 1.2s;
+}
+.leaf-right {
+  bottom: 120px;
+  left: 50%;
+  animation-delay: 1.55s;
+}
+@keyframes popLeaf {
+  0%   { opacity: 0; transform: scale(0) rotate(-8deg); }
+  70%  { opacity: 1; transform: scale(1.05) rotate(12deg); }
+  100% { opacity: 1; transform: scale(1) rotate(6deg); }
+}
+.ideas-container {
+  padding: 30px;
+  text-align: center;
+}
+
+.ideas-heading {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.idea-card {
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.idea-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+}
+
+.idea-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.idea-card p {
+  font-size: 1rem;
+  color: #555;
+}
+/* Container */
+/* More Ideas Page */
+.moreideas-container {
+  padding: 40px;
+  background: linear-gradient(135deg, #f6f9fc, #e6f7f1);
+  min-height: 100vh;
+}
+
+.moreideas-title {
+  text-align: center;
+  color: #2e7d32;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.idea-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.idea-card h2 {
+  font-size: 1.4rem;
+  color: #1565c0;
+  margin-bottom: 10px;
+}
+
+.idea-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.idea-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
